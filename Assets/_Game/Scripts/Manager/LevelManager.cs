@@ -70,6 +70,11 @@ public class LevelManager : MonoBehaviour
     public void ReloadLevel()
     {
         ClearLevel();
+        if(currentLevel == Levels.Count - 1)
+        {
+            LoadLevel(currentLevel);
+            return;
+        }
         LoadLevel(--currentLevel);
     }
 

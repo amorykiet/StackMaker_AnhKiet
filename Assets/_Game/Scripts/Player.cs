@@ -212,6 +212,7 @@ public class Player : MonoBehaviour
         var brick = Instantiate<GameObject>(brickPref, transform.position + Vector3.up * brickSize * BrickStack.Count, Quaternion.Euler(-90, 0, 0), transform);
         BrickStack.Push(brick);
         modelTransform.position = modelTransform.position + Vector3.up * brickSize;
+        brick.transform.localRotation = Quaternion.Euler(-90, 0, 0);
     }
 
     private void RemoveBrick() 
