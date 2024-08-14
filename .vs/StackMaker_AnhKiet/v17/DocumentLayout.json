@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\assets\\_game\\scripts\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|solutionrelative:assets\\_game\\scripts\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|d:\\unity project\\hb academy\\stackmaker_anhkiet\\assets\\_game\\scripts\\manager\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\assets\\_game\\scripts\\manager\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|solutionrelative:assets\\_game\\scripts\\manager\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\assets\\_game\\scripts\\manager\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|d:\\unity project\\hb academy\\stackmaker_anhkiet\\assets\\_game\\scripts\\manager\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|solutionrelative:assets\\_game\\scripts\\manager\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\assets\\_game\\scripts\\manager\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|solutionrelative:assets\\_game\\scripts\\manager\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\assets\\_game\\scripts\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|solutionrelative:assets\\_game\\scripts\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\assets\\_game\\scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0C6ED9F-1311-F659-D20B-8A347D7D3188}|Assembly-CSharp.csproj|solutionrelative:assets\\_game\\scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,77 +30,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CameraFollow.cs",
-              "DocumentMoniker": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\CameraFollow.cs",
-              "RelativeDocumentMoniker": "Assets\\_Game\\Scripts\\CameraFollow.cs",
-              "ToolTip": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\CameraFollow.cs",
-              "RelativeToolTip": "Assets\\_Game\\Scripts\\CameraFollow.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAQwB8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T14:56:53.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UIManager.cs",
-              "DocumentMoniker": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\Manager\\UIManager.cs",
-              "RelativeDocumentMoniker": "Assets\\_Game\\Scripts\\Manager\\UIManager.cs",
-              "ToolTip": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\Manager\\UIManager.cs",
-              "RelativeToolTip": "Assets\\_Game\\Scripts\\Manager\\UIManager.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAowB0AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T09:52:29.757Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\Manager\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\_Game\\Scripts\\Manager\\GameManager.cs",
               "ToolTip": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\Manager\\GameManager.cs",
               "RelativeToolTip": "Assets\\_Game\\Scripts\\Manager\\GameManager.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAYAAAAnAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAowDUAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T09:52:13.883Z"
+              "WhenOpened": "2024-08-14T13:14:00.617Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "LevelManager.cs",
               "DocumentMoniker": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\Manager\\LevelManager.cs",
               "RelativeDocumentMoniker": "Assets\\_Game\\Scripts\\Manager\\LevelManager.cs",
               "ToolTip": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\Manager\\LevelManager.cs",
               "RelativeToolTip": "Assets\\_Game\\Scripts\\Manager\\LevelManager.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAxwAsAAAAAAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAgwDIAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-12T13:43:44.69Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Level.cs",
               "DocumentMoniker": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\Level.cs",
               "RelativeDocumentMoniker": "Assets\\_Game\\Scripts\\Level.cs",
               "ToolTip": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\Level.cs",
               "RelativeToolTip": "Assets\\_Game\\Scripts\\Level.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwCgAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAxwBkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T12:51:52.454Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Player.cs",
-              "DocumentMoniker": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\Player.cs",
-              "RelativeDocumentMoniker": "Assets\\_Game\\Scripts\\Player.cs",
-              "ToolTip": "D:\\Unity Project\\HB Academy\\StackMaker_AnhKiet\\Assets\\_Game\\Scripts\\Player.cs",
-              "RelativeToolTip": "Assets\\_Game\\Scripts\\Player.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T12:35:28.513Z"
+              "WhenOpened": "2024-08-12T12:51:52.454Z",
+              "EditorCaption": ""
             }
           ]
         },

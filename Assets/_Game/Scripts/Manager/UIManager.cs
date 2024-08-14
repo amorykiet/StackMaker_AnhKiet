@@ -7,9 +7,9 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [SerializeField] TMP_Text ScoreText;
-    [SerializeField] GameObject Victory;
-    [SerializeField] GameObject MainMenu;
+    [SerializeField] private  TMP_Text ScoreText;
+    [SerializeField] private GameObject Victory;
+    [SerializeField] private GameObject MainMenu;
 
     private void Awake()
     {

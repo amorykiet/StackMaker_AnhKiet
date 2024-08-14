@@ -12,8 +12,9 @@ public class CameraFollow : MonoBehaviour
     private bool following;
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void LateUpdate()
     {
+
         if (!following) return;
         transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.fixedDeltaTime * speed);
     }

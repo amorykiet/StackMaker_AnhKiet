@@ -7,13 +7,13 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
     
     [SerializeField] private List<Level> Levels = new();
-    [SerializeField] Player player;
-    [SerializeField] CameraFollow cam;
+    [SerializeField] private Player player;
+    [SerializeField] private CameraFollow cam;
 
-    List<Level> currentLevelList = new();
-    List<Player> currentPlayerList = new();
+    private List<Level> currentLevelList = new();
+    private List<Player> currentPlayerList = new();
 
-    int currentLevel;
+    private int currentLevel;
     private void OnEnable()
     {
         Player.OnPlayerWin += CompleteLevel;
@@ -28,14 +28,26 @@ public class LevelManager : MonoBehaviour
     {
         OnInit();
     }
-    void OnInit()
+    public void OnInit()
     {
-        currentLevel = 0;
+        if (PlayerPrefs.HasKey("currentLevel"))
+        {
+            currentLevel = PlayerPrefs.GetInt("currentLevel");
+        }
+        else
+        {
+            currentLevel = 0;
+        }
     }
 
     public void CompleteLevel(int score)
     {
         UIManager.Instance.ShowVictory(score);
+        if (currentLevel < Levels.Count - 1)
+        {
+            currentLevel++;
+        }
+        PlayerPrefs.SetInt("currentLevel", currentLevel);
     }
 
     public void LoadLevel()
@@ -55,6 +67,12 @@ public class LevelManager : MonoBehaviour
         cam.SetFollow(true);
     }
 
+    public void ReloadLevel()
+    {
+        ClearLevel();
+        LoadLevel(--currentLevel);
+    }
+
     public void ClearLevel()
     {
         foreach (var level in currentLevelList)
@@ -71,19 +89,4 @@ public class LevelManager : MonoBehaviour
         cam.SetFollow(false);
     }
 
-    public void ReloadLevel()
-    {
-        ClearLevel();
-        LoadLevel(currentLevel);
-    }
-
-    public void NextLevel()
-    {
-        ClearLevel();
-        if (currentLevel < Levels.Count - 1)
-        {
-            currentLevel++;
-        }
-        LoadLevel(currentLevel);
-    }
 }

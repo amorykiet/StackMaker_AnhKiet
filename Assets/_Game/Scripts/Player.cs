@@ -9,24 +9,23 @@ public class Player : MonoBehaviour
 {
     public static event Action<int> OnPlayerWin;
 
-    [SerializeField] Animator animator;
-    [SerializeField] float rayOffset = 0.25f;
-    [SerializeField] Transform modelTransform;
-    [SerializeField] GameObject brickPref;
-    LevelManager levelManager;
+    [SerializeField] private Animator animator;
+    [SerializeField] private float rayOffset = 0.25f;
+    [SerializeField] private Transform modelTransform;
+    [SerializeField] private GameObject brickPref;
 
     public float brickSize = 0.3f;
+    public float speed = 1f;
 
     private Stack<GameObject> BrickStack = new Stack<GameObject>();
-    private Level currentLevel;
     private Vector3 mouseStartPoint;
     private Vector3 mouseEndPoint;
-    public float speed = 1f;
     private bool moving = false;
     private Vector3 newPosition;
     private Vector3 direction;
     private PivoteBrick pivoteBrickCurrent;
     private bool winning;
+    private int score;
 
 
 
@@ -35,7 +34,7 @@ public class Player : MonoBehaviour
         OnInit();
     }
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (winning) return;
         //Get direction
@@ -97,7 +96,7 @@ public class Player : MonoBehaviour
 
     }
 
-    void OnInit()
+    private void OnInit()
     {
         winning = false;
         newPosition = transform.position;
@@ -106,76 +105,32 @@ public class Player : MonoBehaviour
         animator.SetInteger("renwu", 0);
     }
 
-    void Move(ref Vector3 direction, out Vector3 newPosition)
+    private void Move(ref Vector3 direction, out Vector3 newPosition)
     {
         newPosition = transform.position;
         RaycastHit hit;
         if (Physics.Raycast(transform.position + Vector3.up * rayOffset, direction, out hit, 1.3f))
-        {   
+        {
             //Hit Wall
-            if (hit.collider.tag == "Wall")
+            if (hit.collider.CompareTag("Wall"))
             {
-                moving = false;
-                return;
+                CollideWithWall(hit);
             }
             //Collect Brick
-            else if (hit.collider.tag == "BrickOnPlatform")
+
+            if (hit.collider.CompareTag("BrickOnPlatform"))
             {
-                PivoteBrick pivoteBrick = hit.collider.GetComponent<PivoteBrick>();
-                if (pivoteBrick.IsActive())
-                {
-                    AddBrick();
-                    pivoteBrick.RemoveBrick();
-                }
-                newPosition = transform.position + direction;
+                CollideWithBrickOnPlatform(hit);
             }
-
             //On Bridge
-            else if (hit.collider.tag == "BrickOnBridge")
+            if (hit.collider.tag == "BrickOnBridge")
             {
-                PivoteBrick pivoteBrick = hit.collider.GetComponent<PivoteBrick>();
-
-                //Go back
-                if (pivoteBrick.IsActive())
-                {
-                    AddBrick();
-                    pivoteBrick.RemoveBrick();
-                    newPosition = transform.position + direction;
-                }
-
-                //Go toward
-                else if (BrickStack.Count > 0)
-                {
-                    if (BrickStack.Count == 1)
-                    {
-                        pivoteBrickCurrent = pivoteBrick;
-                    }
-                    RemoveBrick();
-                    pivoteBrick.AddBrick();
-                    newPosition = transform.position + direction; 
-                }
-
-                //Return
-                else if (BrickStack.Count <= 0)
-                {
-                    direction = -direction;
-                    if(pivoteBrickCurrent != null)
-                    {
-                        AddBrick();
-                        pivoteBrickCurrent.RemoveBrick();
-                    }
-                }
+                CollideWithBrickOnBridge(hit);
             }   
             //Win
-            else if (hit.collider.tag == "WinPos")
+            if (hit.collider.tag == "WinPos")
             {
-                hit.collider.gameObject.GetComponent<WinPos>().OpenChest();
-                moving = false;
-                winning = true;
-                OnPlayerWin?.Invoke(BrickStack.Count);
-                animator.SetInteger("renwu", 2);
-                ClearBrick();
-                return;
+                CollideWithWinPos(hit);
             }
         }
 
@@ -187,21 +142,86 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void CollideWithWall(RaycastHit hit)
+    {
+        moving = false;
+    }
 
-    void AddBrick() 
+    private void CollideWithBrickOnPlatform(RaycastHit hit)
+    {
+        PivoteBrick pivoteBrick = hit.collider.GetComponent<PivoteBrick>();
+        if (pivoteBrick.IsActive())
+        {
+            AddBrick();
+            pivoteBrick.RemoveBrick();
+        }
+        newPosition = transform.position + direction;
+    }
+
+    private void CollideWithBrickOnBridge(RaycastHit hit)
+    {
+        PivoteBrick pivoteBrick = hit.collider.GetComponent<PivoteBrick>();
+
+        //Go back
+        if (pivoteBrick.IsActive())
+        {
+            AddBrick();
+            pivoteBrick.RemoveBrick();
+            newPosition = transform.position + direction;
+        }
+
+        //Go toward
+        else if (BrickStack.Count > 0)
+        {
+            if (BrickStack.Count == 1)
+            {
+                pivoteBrickCurrent = pivoteBrick;
+            }
+            RemoveBrick();
+            pivoteBrick.AddBrick();
+            newPosition = transform.position + direction;
+        }
+
+        //Return
+        else if (BrickStack.Count <= 0)
+        {
+            direction = -direction;
+            if (pivoteBrickCurrent != null)
+            {
+                AddBrick();
+                pivoteBrickCurrent.RemoveBrick();
+            }
+        }
+    }
+
+    private void CollideWithWinPos(RaycastHit hit)
+    {
+        WinPos winPos = hit.collider.gameObject.GetComponent<WinPos>();
+        winPos.OpenChest();
+        // winPos.FireFirework();
+        moving = false;
+        winning = true;
+        animator.SetInteger("renwu", 2);
+        score = BrickStack.Count;
+        ClearBrick();
+        Invoke(nameof(EmitEventWin), 2);
+    }
+
+    private void AddBrick() 
     {
         var brick = Instantiate<GameObject>(brickPref, transform.position + Vector3.up * brickSize * BrickStack.Count, Quaternion.Euler(-90, 0, 0), transform);
         BrickStack.Push(brick);
         modelTransform.position = modelTransform.position + Vector3.up * brickSize;
     }
-    void RemoveBrick() 
+
+    private void RemoveBrick() 
     {
         var brick = BrickStack.Pop();
         Destroy(brick);
         modelTransform.position = modelTransform.position + Vector3.down * brickSize;
     }
 
-    void ClearBrick()
+    private void ClearBrick()
     {
         while(BrickStack.Count > 0)
         {
@@ -209,9 +229,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SetCurrentLevel(Level level)
+    private void EmitEventWin()
     {
-        this.currentLevel = level;
+        OnPlayerWin?.Invoke(score);
     }
+    
+
 
 }

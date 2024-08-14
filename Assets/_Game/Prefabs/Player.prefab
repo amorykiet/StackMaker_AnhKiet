@@ -253,7 +253,7 @@ MonoBehaviour:
   modelTransform: {fileID: 7421861898150744163}
   brickPref: {fileID: 1531101969777205, guid: 8aad5fca35890fd4389dabb982d52236, type: 3}
   brickSize: 0.3
-  speed: 10
+  speed: 20
 --- !u!1 &1025847298062810938
 GameObject:
   m_ObjectHideFlags: 0

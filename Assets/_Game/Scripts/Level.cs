@@ -7,6 +7,7 @@ using static Player;
 public class Level : MonoBehaviour
 {
     [SerializeField] public Transform startPos;
+    
     public Player player;
 
     private int score;
@@ -17,12 +18,11 @@ public class Level : MonoBehaviour
         OnInit();
     }
 
-    void OnInit()
+    public void OnInit()
     {
         score = 0;
         completed = false;
     }
-
 
     public void Complete()
     {

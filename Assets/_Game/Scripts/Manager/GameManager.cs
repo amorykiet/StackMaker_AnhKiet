@@ -6,8 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public enum GameState {Main, Playing}
-    public GameState State;
+    private enum GameState {Main, Playing}
+    
+    private GameState State;
 
     private void Awake()
     {
@@ -24,15 +25,15 @@ public class GameManager : MonoBehaviour
         switch (State)
         {
             case GameState.Main:
-
+                //Something in Main
                 break;
             case GameState.Playing:
-
+                //Something in Playing
                 break;
         }
     }
 
-    void OnInit()
+    public void OnInit()
     {
         GoMain();
     }
@@ -52,4 +53,5 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.HideVictory();
         LevelManager.Instance.ClearLevel();
     }
+
 }

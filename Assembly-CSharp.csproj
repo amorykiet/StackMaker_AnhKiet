@@ -60,7 +60,6 @@
     <Analyzer Include="D:\apps\2022.3.38f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_Game\Scripts\BrickOnBridge.cs" />
     <Compile Include="Assets\_Game\Scripts\WinPos.cs" />
     <Compile Include="Assets\_Game\Scripts\PivoteBrick.cs" />
     <Compile Include="Assets\_Game\Scripts\Manager\LevelManager.cs" />

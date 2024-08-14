@@ -11,7 +11,8 @@ public class WinPos : MonoBehaviour
     {
         OnInit();
     }
-    void OnInit()
+
+    public void OnInit()
     {
         ChestClose.SetActive(true);
         ChestOpen.SetActive(false);
