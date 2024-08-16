@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Levels:
-  - {fileID: 7926166310700155345, guid: 04f6e55544097ca40aa5a97c5de78f41, type: 3}
   - {fileID: 628415770454938902, guid: 49577c6b19bff154fa999e0275092249, type: 3}
   - {fileID: 5719855790187715361, guid: b99fe0e7902583045937bb82c4fc44ce, type: 3}
   - {fileID: 4972763282369028621, guid: b129776eb48eacb4e98b9d0a53083450, type: 3}
