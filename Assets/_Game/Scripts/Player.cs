@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     public float brickSize = 0.3f;
     public float speed = 1f;
 
+    private enum Anim {Idle, Jump, Victory}
+    //private Anim CurrentAnim;
+
     private Stack<GameObject> BrickStack = new Stack<GameObject>();
     private Vector3 mouseStartPoint;
     private Vector3 mouseEndPoint;
@@ -101,8 +104,7 @@ public class Player : MonoBehaviour
         winning = false;
         newPosition = transform.position;
         direction = Vector3.zero;
-        //Anim Ildle (not good!!!)
-        animator.SetInteger("renwu", 0);
+        SetAnim(Anim.Idle);
     }
 
     private void Move(ref Vector3 direction, out Vector3 newPosition)
@@ -137,13 +139,14 @@ public class Player : MonoBehaviour
         //On Platform
         else
         {
+            SetAnim(Anim.Idle);
             newPosition = transform.position + direction;
-            return;
         }
     }
 
     private void CollideWithWall(RaycastHit hit)
     {
+        SetAnim(Anim.Idle);
         moving = false;
     }
 
@@ -201,7 +204,7 @@ public class Player : MonoBehaviour
         // winPos.FireFirework();
         moving = false;
         winning = true;
-        animator.SetInteger("renwu", 2);
+        SetAnim(Anim.Victory);
         score = BrickStack.Count;
         ClearBrick();
         Invoke(nameof(EmitEventWin), 2);
@@ -213,6 +216,7 @@ public class Player : MonoBehaviour
         BrickStack.Push(brick);
         modelTransform.position = modelTransform.position + Vector3.up * brickSize;
         brick.transform.localRotation = Quaternion.Euler(-90, 0, 0);
+        SetAnim(Anim.Jump);
     }
 
     private void RemoveBrick() 
@@ -235,6 +239,20 @@ public class Player : MonoBehaviour
         OnPlayerWin?.Invoke(score);
     }
     
-
+    private void SetAnim(Anim anim)
+    {
+        switch(anim)
+        {
+            case Anim.Idle:
+                animator.SetInteger("state", 0);
+                break;
+            case Anim.Jump:
+                animator.SetInteger("state", 1);
+                break;
+            case Anim.Victory:
+                animator.SetInteger("state", 2);
+                break;
+        }
+    }
 
 }
